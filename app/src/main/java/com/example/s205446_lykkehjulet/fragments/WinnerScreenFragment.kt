@@ -1,19 +1,19 @@
-package com.example.s205446_lykkehjulet
+package com.example.s205446_lykkehjulet.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.s205446_lykkehjulet.databinding.LosingScreenFragmentBinding
+import com.example.s205446_lykkehjulet.MainActivity
+import com.example.s205446_lykkehjulet.databinding.WinnerScreenFragmentBinding
 
 /**
- * Struktur og kode (Binding, inflator, container) fra Words/Navigation Codelab er brugt som
+ *  * Struktur og kode (Binding, inflator, container) fra Words/Navigation Codelab er brugt som
  * skelet for fragmentet.
  */
-class LosingScreenFragment : Fragment() {
-    private var _binding: LosingScreenFragmentBinding? = null
-
+class WinnerScreenFragment: Fragment() {
+    private var _binding: WinnerScreenFragmentBinding? = null
 
     private val binding get() = _binding!!
 
@@ -27,20 +27,20 @@ class LosingScreenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = LosingScreenFragmentBinding.inflate(inflater, container, false)
+        _binding = WinnerScreenFragmentBinding.inflate(inflater, container, false)
 
         return binding.root
     }
 
     /**
-     * i onViewCreated bliver tekst sat samt en onCLickListener på en knap, som kan starte et nyt spil med
-     * resetGame() metoden.
+     * onViewCreated indeholder præcis samme funkiton som LosingScreenFragmentet, altså tekst samt
+     * en onCLickListener på en knap, som kan starte et nyt spil met resetGame() metoden.
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mActivity = (activity as MainActivity)
-        binding.gameLost.text
-        binding.losePlayAgainButton.setOnClickListener {
+        binding.gameWon.text
+        binding.winPlayAgainButton.setOnClickListener {
             mActivity.resetGame()
         }
 
@@ -50,4 +50,5 @@ class LosingScreenFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

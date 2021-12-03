@@ -5,14 +5,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.example.s205446_lykkehjulet.data.CategoryData
 import com.example.s205446_lykkehjulet.databinding.ActivityMainBinding
+import com.example.s205446_lykkehjulet.fragments.LosingScreenFragment
+import com.example.s205446_lykkehjulet.fragments.MainGameFragment
+import com.example.s205446_lykkehjulet.fragments.OpeningScreenFragmentDirections
+import com.example.s205446_lykkehjulet.fragments.WinnerScreenFragment
 import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
 
 
     /**
-     * Navigation- & Bindingrelateret kode er brugt som i Codelab - (Words) eksemplet.
+     * Navigation- & Bindingrelateret kode er fra Codelab - (Words) eksemplet.
      * Dette går igen i fragmenterne samt adapteren
      */
     private lateinit var navController: NavController
@@ -181,8 +186,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
+     * Koden er hovedsageligt fra linket: https://stackoverflow.com/questions/64998884/im-trying-to-replace-a-fragment-in-an-android-app-but-my-fragment-doesnt-chan
      * Bruges til at opdatere MainGame fragmentet visuelt, så værdier som liv, point og korrekt gættede ord
-     * opdateres på skærmen.
+     * opdateres på skærmen. Fungerer også som alternativ til ufærdigt navigeringssystem.
      */
     fun changeFragmentView(fragment: Fragment) {
         val fragmentViewReset = supportFragmentManager.beginTransaction()

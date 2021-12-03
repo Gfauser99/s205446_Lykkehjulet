@@ -1,4 +1,4 @@
-package com.example.s205446_lykkehjulet
+package com.example.s205446_lykkehjulet.data
 
 class CategoryData {
     /**

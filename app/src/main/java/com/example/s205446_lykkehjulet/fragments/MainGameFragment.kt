@@ -1,4 +1,4 @@
-package com.example.s205446_lykkehjulet
+package com.example.s205446_lykkehjulet.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,9 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.s205446_lykkehjulet.MainActivity
+import com.example.s205446_lykkehjulet.R
+import com.example.s205446_lykkehjulet.adapter.RecyclerViewAdapter
 import com.example.s205446_lykkehjulet.databinding.GameMainFragmentBinding
 
 /**

@@ -1,4 +1,4 @@
-package com.example.s205446_lykkehjulet
+package com.example.s205446_lykkehjulet.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.s205446_lykkehjulet.MainActivity
+import com.example.s205446_lykkehjulet.R
 
 /**
  *  Struktur og kode fra Words/Navigation Codelab er brugt som skelet for fragmentet.
