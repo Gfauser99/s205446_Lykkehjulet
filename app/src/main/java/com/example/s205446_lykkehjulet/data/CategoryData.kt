@@ -5,23 +5,23 @@ class CategoryData {
      * Data som indeholder de potentielle kategorier og ord, som spillet bruger.
      * Koden er inspireret fra Affirmations- og Dogglers CodeLab.
      */
-    val category_words:  List<Kategori> =
+    val category_words:  List<Category> =
         listOf(
-            Kategori("Sport", "football"),
-            Kategori("Sport", "tennis"),
-            Kategori("Sport", "badminton"),
-            Kategori("Beer", "tuborg"),
-            Kategori("Beer", "carlsberg"),
-            Kategori("Beer", "heineken"),
-            Kategori("Planets", "venus"),
-            Kategori("Planets", "uranus"),
-            Kategori("Planets", "saturn"),
-            Kategori("Breakfast", "oatmeal"),
-            Kategori("Breakfast", "cornflakes"),
-            Kategori("Breakfast", "toast"),
-            Kategori("Country", "thailand" ),
-            Kategori("Country","singapore" ),
-            Kategori("Country","cambodia" )
+            Category("Sport", "football"),
+            Category("Sport", "tennis"),
+            Category("Sport", "badminton"),
+            Category("Beer", "tuborg"),
+            Category("Beer", "carlsberg"),
+            Category("Beer", "heineken"),
+            Category("Planets", "venus"),
+            Category("Planets", "uranus"),
+            Category("Planets", "saturn"),
+            Category("Breakfast", "oatmeal"),
+            Category("Breakfast", "cornflakes"),
+            Category("Breakfast", "toast"),
+            Category("Country", "thailand" ),
+            Category("Country","singapore" ),
+            Category("Country","cambodia" )
             )
 }
 

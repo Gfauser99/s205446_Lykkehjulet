@@ -30,10 +30,11 @@ class MainGameFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = GameMainFragmentBinding.inflate(inflater, container, false)
 
         return binding.root
+
+
     }
 
     /**

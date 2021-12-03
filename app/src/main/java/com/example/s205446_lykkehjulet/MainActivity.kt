@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var currentSpin: String
     lateinit var spinToString: String
-    private var letterId: Int = 0
+    private var randomWordIndex: Int = 0
     lateinit var currentCategory: String
     val liste = mutableListOf<String>()
 
@@ -69,15 +69,15 @@ class MainActivity : AppCompatActivity() {
     fun startGame() {
 
         liste.clear()
-        letterId = (CategoryData().category_words.indices).random()
-        currentCategory = CategoryData().category_words[letterId].category
+        randomWordIndex = (CategoryData().category_words.indices).random()
+        currentCategory = CategoryData().category_words[randomWordIndex].category
         currentPoints = 0
         currentLives = 5
-        letterToGuess = CategoryData().category_words[letterId].hiddenWord.chunked(1)
+        letterToGuess = CategoryData().category_words[randomWordIndex].hiddenWord.chunked(1)
         println(letterToGuess)
 
         val action =
-            OpeningScreenFragmentDirections.actionLetterListFragmentToWordListFragment(letter = letterToGuess.toString())
+            OpeningScreenFragmentDirections.actionOpeningFragmentToMainGameFragment(letter = letterToGuess.toString())
 
         navController.navigate(action)
         wheelButton = true
@@ -86,10 +86,10 @@ class MainActivity : AppCompatActivity() {
 
     fun resetGame() {
         liste.clear()
-        letterId = (CategoryData().category_words.indices).random()
-        currentCategory = CategoryData().category_words[letterId].category
+        randomWordIndex = (CategoryData().category_words.indices).random()
+        currentCategory = CategoryData().category_words[randomWordIndex].category
 
-        letterToGuess = CategoryData().category_words[letterId].hiddenWord.chunked(1)
+        letterToGuess = CategoryData().category_words[randomWordIndex].hiddenWord.chunked(1)
         println(letterToGuess)
         currentPoints = 0
         currentLives = 5
@@ -173,6 +173,8 @@ class MainActivity : AppCompatActivity() {
     fun checkIfWordGuessedOrGameOver() {
         if (liste.containsAll(letterToGuess)) {
             changeFragmentView(WinnerScreenFragment())
+
+
         } else if (currentLives <= 0) {
             changeFragmentView(LosingScreenFragment())
         }
