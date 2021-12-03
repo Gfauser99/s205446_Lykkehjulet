@@ -33,14 +33,15 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment.navController
     }
+
     //ordet, som skal gættes, der er delt op i en liste af ordets bogstaver
     lateinit var letterToGuess: List<String>
 
 
     lateinit var currentSpin: String
     lateinit var spinToString: String
-    private var letterId : Int = 0
-    lateinit var currentCategory : String
+    private var letterId: Int = 0
+    lateinit var currentCategory: String
     val liste = mutableListOf<String>()
 
     //Button værdier bruges til henholdsvis at til- og frakoble knapperne samt vise tekst
@@ -51,10 +52,12 @@ class MainActivity : AppCompatActivity() {
 
     //Bruges til at vise og opdatere spillerens point og liv
     var currentLives by Delegates.notNull<Int>()
-    var currentPoints  by Delegates.notNull<Int>()
+    var currentPoints by Delegates.notNull<Int>()
     var pointsFromSpin by Delegates.notNull<Int>()
+
     //Listen af mulige udfald for et hjulspin
-    val possibleSpins = listOf("extraTurn", "missTurn", "bankrupt" ,"100" , "200" , "300", "400" , "500" , "750")
+    val possibleSpins =
+        listOf("extraTurn", "missTurn", "bankrupt", "100", "200", "300", "400", "500", "750")
 
 
     /**
@@ -73,9 +76,10 @@ class MainActivity : AppCompatActivity() {
         letterToGuess = CategoryData().category_words[letterId].hiddenWord.chunked(1)
         println(letterToGuess)
 
-        val action = OpeningScreenFragmentDirections.actionLetterListFragmentToWordListFragment(letter = letterToGuess.toString())
+        val action =
+            OpeningScreenFragmentDirections.actionLetterListFragmentToWordListFragment(letter = letterToGuess.toString())
 
-       navController.navigate(action)
+        navController.navigate(action)
         wheelButton = true
         guessButton = false
     }
@@ -105,28 +109,34 @@ class MainActivity : AppCompatActivity() {
         currentSpin = possibleSpins.random()
 
         when (currentSpin) {
-            "extraTurn" -> { currentLives += 1
+            "extraTurn" -> {
+                currentLives += 1
                 spinToString = getString(R.string.extra_spin)
                 currentSpin = spinToString
                 reSpinButton = true
             }
-            "missTurn" -> {currentLives -= 1
+            "missTurn" -> {
+                currentLives -= 1
                 spinToString = getString(R.string.missed_spin)
                 currentSpin = spinToString
-                reSpinButton = true}
+                reSpinButton = true
+            }
 
-            "bankrupt" -> {currentPoints = 0
+            "bankrupt" -> {
+                currentPoints = 0
                 spinToString = getString(R.string.bankrupt_spin)
                 currentSpin = spinToString
                 reSpinButton = true
             }
             else -> {
                 pointsFromSpin = currentSpin.toInt()
-                val spinToString = ("$currentSpin possible points for each correct letter! \n Try to guess a letter!")
+                val spinToString =
+                    ("$currentSpin possible points for each correct letter! \n Try to guess a letter!")
                 currentSpin = spinToString
                 wheelButton = false
                 reSpinButton = false
-                guessButton = true}
+                guessButton = true
+            }
         }
 
         changeFragmentView(MainGameFragment())
@@ -136,12 +146,8 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
     private fun gameDoneScreen() {
         super.onPostResume()
-
-
 
 
     }
@@ -151,7 +157,9 @@ class MainActivity : AppCompatActivity() {
      * Bruges når 'Guess' knappen trykkes på. Knappen bliver disabled og wheelButton knappen enables.
      * Derefter bliver fragmentet 'refreshet' så liv, point og korrekte bogstaver opdateres på skærmen.
      */
-    fun guessLetter () {
+    fun guessLetter() {
+
+
         wheelButton = true
         guessButton = false
         changeFragmentView(MainGameFragment())
@@ -165,8 +173,7 @@ class MainActivity : AppCompatActivity() {
     fun checkIfWordGuessedOrGameOver() {
         if (liste.containsAll(letterToGuess)) {
             changeFragmentView(WinnerScreenFragment())
-        }
-        else if (currentLives == 0) {
+        } else if (currentLives <= 0) {
             changeFragmentView(LosingScreenFragment())
         }
     }
@@ -182,7 +189,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
     }
 
     /**
@@ -196,8 +202,8 @@ class MainActivity : AppCompatActivity() {
 
         fragmentViewReset.addToBackStack(null)
 
-        fragmentViewReset.commit()}
-
+        fragmentViewReset.commit()
+    }
 
 
     override fun onSupportNavigateUp(): Boolean {

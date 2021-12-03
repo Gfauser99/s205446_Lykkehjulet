@@ -7,21 +7,21 @@ class CategoryData {
      */
     val category_words:  List<Kategori> =
         listOf(
-            Kategori("sport", "fodbold"),
-            Kategori("sport", "tennis"),
-            Kategori("sport", "badminton"),
-            Kategori("beer", "tuborg"),
-            Kategori("beer", "carlsberg"),
-            Kategori("beer", "heineken"),
-            Kategori("planets", "venus"),
-            Kategori("planets", "uranus"),
-            Kategori("planets", "saturn"),
-            Kategori("breakfast", "oatmeal"),
-            Kategori("breakfast", "cornflakes"),
-            Kategori("breakfast", "toast"),
-            Kategori("country", "thailand" ),
-            Kategori("country","singapore" ),
-            Kategori("country","cambodia" )
+            Kategori("Sport", "football"),
+            Kategori("Sport", "tennis"),
+            Kategori("Sport", "badminton"),
+            Kategori("Beer", "tuborg"),
+            Kategori("Beer", "carlsberg"),
+            Kategori("Beer", "heineken"),
+            Kategori("Planets", "venus"),
+            Kategori("Planets", "uranus"),
+            Kategori("Planets", "saturn"),
+            Kategori("Breakfast", "oatmeal"),
+            Kategori("Breakfast", "cornflakes"),
+            Kategori("Breakfast", "toast"),
+            Kategori("Country", "thailand" ),
+            Kategori("Country","singapore" ),
+            Kategori("Country","cambodia" )
             )
 }
 

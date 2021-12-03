@@ -41,14 +41,9 @@ class WinnerScreenFragment: Fragment() {
         val mActivity = (activity as MainActivity)
         binding.gameWon.text
         binding.winPlayAgainButton.setOnClickListener {
-            mActivity.resetGame()
-        }
-
-
+            mActivity.resetGame() }
     }
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
-    }
-
+        _binding = null }
 }

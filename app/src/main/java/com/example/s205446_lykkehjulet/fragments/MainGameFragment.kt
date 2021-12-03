@@ -30,11 +30,10 @@ class MainGameFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = GameMainFragmentBinding.inflate(inflater, container, false)
 
         return binding.root
-
-
     }
 
     /**
@@ -75,8 +74,7 @@ class MainGameFragment : Fragment() {
         }
         // her disables spin knappen, hvis man skal indtaste et bogstav og gætte et ord efter et spin.
         if (!mActivity.wheelButton && !mActivity.reSpinButton) {
-            spinButton.isEnabled = !spinButton.isEnabled
-        }
+            spinButton.isEnabled = !spinButton.isEnabled }
 
         // OnClickListener på knappen, når den er enabled. Hvis inputtet har en længde på 1 og er et bogstav
         // vil den tjekke om bogstavet findes i ordet eller i listen over gættede ord.
@@ -87,43 +85,32 @@ class MainGameFragment : Fragment() {
 
                 if (inputText.toString().length == 1) {
                     if (inputText.toString().lowercase() !in mActivity.liste
-                        && inputText.toString().lowercase() in mActivity.letterToGuess) {
+                        && inputText.toString().lowercase() in mActivity.letterToGuess
+                    ) {
                         mActivity.liste.add(inputText.toString().lowercase())
-                        mActivity.currentPoints += (mActivity.pointsFromSpin * (mActivity.letterToGuess.count{it == inputText.toString().lowercase()}))
-                       // mActivity.currentSpin = (mActivity.spinnedPoints * (mActivity.letterToGuess.count{it == inputText.toString().lowercase()})).toString()
+                        mActivity.currentPoints += (mActivity.pointsFromSpin * (mActivity.letterToGuess.count { it == inputText.toString().lowercase() }))
+                        // mActivity.currentSpin = (mActivity.spinnedPoints * (mActivity.letterToGuess.count{it == inputText.toString().lowercase()})).toString()
                         mActivity.guessLetter()
-                        mActivity.checkIfWordGuessedOrGameOver()
+                        mActivity.checkIfWordGuessedOrGameOver()}
 
-
-                    }else if (inputText.toString().lowercase() in mActivity.liste) {
-                    }
-                    else if (inputText.toString().lowercase() !in mActivity.liste
+                    if (inputText.toString().lowercase() !in mActivity.liste
                         && inputText.toString().lowercase() !in mActivity.letterToGuess) {
-                        mActivity.liste.add(inputText.toString().lowercase())
-                        mActivity.withdrawAndCheckLifePoint()
-                        mActivity.guessLetter()
-                        mActivity.checkIfWordGuessedOrGameOver()
-
+                            mActivity.liste.add(inputText.toString().lowercase())
+                            mActivity.withdrawAndCheckLifePoint()
+                            mActivity.guessLetter()
+                            mActivity.checkIfWordGuessedOrGameOver()
                     }
-
-
                 }
-
-
-
-
-
-            // onCLickListener til wheelButton når den er aktiv. Kalder metoden fra mainActivity.
-            }}
+            }
+        }
         if (mActivity.wheelButton) {
             spinButton.setOnClickListener {
                 mActivity.spinWheel()
-            }}
-
+            }
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
-    }
+        _binding = null }
 }
