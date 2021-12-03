@@ -7,6 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ *  Struktur og kode fra Words/Navigation Codelab er brugt som skelet for fragmentet.
+ *  ViewHolder-metoderne er fra 'WordAdapter'-klassen fra Words-Codelabbet.
+ */
+
 class RecyclerViewAdapter(private val letters: List<String>, context: Context) :
     RecyclerView.Adapter<RecyclerViewAdapter.WordViewHolder>() {
 
@@ -23,7 +28,10 @@ class RecyclerViewAdapter(private val letters: List<String>, context: Context) :
         return WordViewHolder(layout)
     }
 
-
+    /**
+     * Viser bogstaverne fra ordet i recyclerViewet, når de er blevet gættet og indgår i listen af
+     * gættede bogstaver.
+     */
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val item = letters[position]
         // Needed to call startActivity
@@ -34,6 +42,6 @@ class RecyclerViewAdapter(private val letters: List<String>, context: Context) :
             holder.bogstaver.text = item.uppercase()
         }
     }
-
+        // ItemCount gør jeg ikke brug af i nogen som helst sammenhænge
     override fun getItemCount(): Int = letters.size
 }

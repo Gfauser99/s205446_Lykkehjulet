@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
+<!-- Det meste kode samt hele strukturen i denne xml fil
+ er fra Words Codelab. -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_holder"

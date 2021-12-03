@@ -9,7 +9,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.s205446_lykkehjulet.databinding.OpeningFragmentBinding
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * Struktur og kode (Binding, inflator, container) fra Words/Navigation Codelab er brugt som
+ * skelet for fragmentet.
  */
 class OpeningScreenFragment : Fragment() {
 
@@ -23,6 +24,10 @@ class OpeningScreenFragment : Fragment() {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
+
+    /**
+     * Når view bliver skabt, sættes en onClickListener til knappen på viewet, som starter et nyt spil.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

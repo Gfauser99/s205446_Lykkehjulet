@@ -9,50 +9,62 @@ import com.example.s205446_lykkehjulet.databinding.ActivityMainBinding
 import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
+
+
+    /**
+     * Navigation- & Bindingrelateret kode er brugt som i Codelab - (Words) eksemplet.
+     * Dette går igen i fragmenterne samt adapteren
+     */
     private lateinit var navController: NavController
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
-
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         navController = navHostFragment.navController
     }
+    //ordet, som skal gættes, der er delt op i en liste af ordets bogstaver
     lateinit var letterToGuess: List<String>
+
+
     lateinit var currentSpin: String
     lateinit var spinToString: String
     private var letterId : Int = 0
-    var startingLives = 5
     lateinit var currentCategory : String
-    var currentLives = startingLives
-    //var points = 0
+    val liste = mutableListOf<String>()
+
+    //Button værdier bruges til henholdsvis at til- og frakoble knapperne samt vise tekst
+    //på bestemte tidspunkter
     var guessButton = false
     var wheelButton = false
     var reSpinButton = false
-    var currentPoints = 0
+
+    //Bruges til at vise og opdatere spillerens point og liv
+    var currentLives by Delegates.notNull<Int>()
+    var currentPoints  by Delegates.notNull<Int>()
     var pointsFromSpin by Delegates.notNull<Int>()
+    //Listen af mulige udfald for et hjulspin
     val possibleSpins = listOf("extraTurn", "missTurn", "bankrupt" ,"100" , "200" , "300", "400" , "500" , "750")
 
-    val liste = mutableListOf<String>()
 
+    /**
+     * Bliver brugt i første fragment, når spillet skal startes.
+     * et tilfældigt ord væles fra dataen, og dette splittes op til et array af bogstaver.
+     * navControlleren navigerer til MainGameFragmentet og wheel knappen sættes til true og guess til false,
+     * da man skal spinne hjulet til start før man kan gætte.
+     */
     fun startGame() {
-
 
         liste.clear()
         letterId = (CategoryData().category_words.indices).random()
-        currentCategory = CategoryData().category_words[letterId].Category
-
+        currentCategory = CategoryData().category_words[letterId].category
+        currentPoints = 0
+        currentLives = 5
         letterToGuess = CategoryData().category_words[letterId].hiddenWord.chunked(1)
         println(letterToGuess)
 
@@ -66,7 +78,7 @@ class MainActivity : AppCompatActivity() {
     fun resetGame() {
         liste.clear()
         letterId = (CategoryData().category_words.indices).random()
-        currentCategory = CategoryData().category_words[letterId].Category
+        currentCategory = CategoryData().category_words[letterId].category
 
         letterToGuess = CategoryData().category_words[letterId].hiddenWord.chunked(1)
         println(letterToGuess)
@@ -78,6 +90,12 @@ class MainActivity : AppCompatActivity() {
         changeFragmentView(MainGameFragment())
     }
 
+    /**
+     * Forskellige udfald fra et spin på hjulet. Bruges når man trykker på 'spin wheel' knappen.
+     * currentSpin bliver valgt fra listen over mulige udfald, og ud fra denne værdi bliver
+     * en del af when-statemented udført.
+     * Metoden gentages indtil der landes på et point-udfald, da de andre blot leder til et nyt spin.
+     */
     fun spinWheel() {
         currentSpin = possibleSpins.random()
 
@@ -124,11 +142,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
-
-
-
+    /**
+     * Bruges når 'Guess' knappen trykkes på. Knappen bliver disabled og wheelButton knappen enables.
+     * Derefter bliver fragmentet 'refreshet' så liv, point og korrekte bogstaver opdateres på skærmen.
+     */
     fun guessLetter () {
         wheelButton = true
         guessButton = false
@@ -136,6 +153,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    /**
+     * Tjekker om alle bogstaver i ordet er gættet eller liv = 0
+     */
     fun checkIfWordGuessedOrGameOver() {
         if (liste.containsAll(letterToGuess)) {
             changeFragmentView(WinnerScreenFragment())
@@ -145,6 +166,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Trækker et liv fra spilleren
+     */
     fun withdrawAndCheckLifePoint() {
         currentLives -= 1
         println(currentLives)
@@ -156,6 +180,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Bruges til at opdatere MainGame fragmentet visuelt, så værdier som liv, point og korrekt gættede ord
+     * opdateres på skærmen.
+     */
     fun changeFragmentView(fragment: Fragment) {
         val fragmentViewReset = supportFragmentManager.beginTransaction()
         fragmentViewReset.replace(R.id.nav_host_fragment, fragment)

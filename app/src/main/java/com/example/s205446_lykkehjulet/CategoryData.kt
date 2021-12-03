@@ -1,7 +1,10 @@
 package com.example.s205446_lykkehjulet
 
 class CategoryData {
-
+    /**
+     * Data som indeholder de potentielle kategorier og ord, som spillet bruger.
+     * Koden er inspireret fra Affirmations- og Dogglers CodeLab.
+     */
     val category_words:  List<Kategori> =
         listOf(
             Kategori("sport", "fodbold"),
