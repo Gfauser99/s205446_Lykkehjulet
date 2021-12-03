@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.11851851851851852" />
+        <entry key="app/src/main/res/drawable/border.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/drawable/button_color.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.11851851851851852" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/button_color.xml" value="0.1328125" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/game_main_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/losing_screen_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/mini_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/opening_fragment.xml" value="0.1328125" />
+        <entry key="app/src/main/res/layout/winner_screen_fragment.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

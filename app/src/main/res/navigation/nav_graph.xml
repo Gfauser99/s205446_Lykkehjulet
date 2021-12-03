@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/OpeningScreenFragmentNav">
+
+        <fragment
+            android:id="@+id/OpeningScreenFragmentNav"
+            android:name="com.example.s205446_lykkehjulet.OpeningScreenFragment"
+            android:label="@string/app_name"
+            tools:layout="@layout/opening_fragment">
+            <action
+                android:id="@+id/action_letterListFragment_to_wordListFragment"
+                app:destination="@id/MainGameFragmentNav" />
+        </fragment>
+        <fragment
+            android:id="@+id/MainGameFragmentNav"
+            android:name="com.example.s205446_lykkehjulet.MainGameFragment"
+            android:label=""
+            tools:layout="@layout/game_main_fragment">
+        <argument
+            android:name="letter"
+            app:argType="string" />
+        </fragment>
+</navigation>

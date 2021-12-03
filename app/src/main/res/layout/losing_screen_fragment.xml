@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/game_lost_image"
+        android:layout_width="270dp"
+        android:layout_height="361dp"
+        android:layout_gravity="center"
+        android:src="@drawable/game_over"
+        app:layout_constraintBottom_toTopOf="@id/game_lost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/game_lost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:paddingTop="50dp"
+        android:text="@string/game_lost_text"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_lost_image"></TextView>
+    <TextView
+        android:id="@+id/game_lost_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:paddingTop="5dp"
+        android:text="Do you want to give it another try?"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_lost"></TextView>
+
+    <Button
+        android:id="@+id/lose_play_again_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play again"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_lost" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

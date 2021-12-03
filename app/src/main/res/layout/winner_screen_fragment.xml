@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/game_won_image"
+        android:layout_width="270dp"
+        android:layout_height="361dp"
+        android:layout_gravity="center"
+        android:src="@drawable/game_won"
+        app:layout_constraintBottom_toTopOf="@id/game_won"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/game_won"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:paddingTop="50dp"
+        android:text="@string/game_won_text"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_won_image"></TextView>
+
+    <Button
+        android:id="@+id/win_play_again_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play again"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_won" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

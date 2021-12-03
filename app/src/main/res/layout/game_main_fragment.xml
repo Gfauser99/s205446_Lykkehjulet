@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainGameFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/kategori_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:fontFamily="sans-serif"
+            android:layout_gravity="center_horizontal"
+            ></TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="14dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/recyclerwords_view"
+            />
+
+
+        <ImageView
+            android:id="@+id/wheel"
+            android:layout_width="277dp"
+            android:layout_height="173dp"
+            android:layout_gravity="center"
+            android:src="@drawable/wheel_game_picture"></ImageView>
+        <TextView
+            android:id="@+id/remaining_lives_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:fontFamily="sans-serif-black"
+            android:layout_gravity="start"></TextView>
+
+        <TextView
+            android:id="@+id/current_points_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:fontFamily="sans-serif-black"
+            android:textSize="14dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/spin_result_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="12dp">
+        </TextView>
+
+        <Button
+            android:id="@+id/spin_wheel_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="Spin the wheel!"
+            android:backgroundTint="@drawable/button_color"/>
+
+
+
+        <Button
+            android:id="@+id/guess_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="Guess Letter"
+            android:backgroundTint="@drawable/button_color"
+            />
+
+        <EditText
+            android:id="@+id/guess_input"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="@string/text_hint"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:imeOptions="actionDone"></EditText>
+    </LinearLayout>
+
+</FrameLayout>
+
+
