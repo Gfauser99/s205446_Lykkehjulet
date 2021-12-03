@@ -7,15 +7,18 @@ class CategoryData {
             Kategori("sport", "fodbold"),
             Kategori("sport", "tennis"),
             Kategori("sport", "badminton"),
-            Kategori("bajer", "tuborg"),
-            Kategori("bajer", "carlsberg"),
-            Kategori("bajer", "heineken"),
-            Kategori("planeter", "venus"),
-            Kategori("planeter", "uranus"),
-            Kategori("planeter", "saturn"),
-            Kategori("morgenmad", "havregryn"),
-            Kategori("morgenmad", "aeggemad"),
-            Kategori("morgenmad", "toast"),
+            Kategori("beer", "tuborg"),
+            Kategori("beer", "carlsberg"),
+            Kategori("beer", "heineken"),
+            Kategori("planets", "venus"),
+            Kategori("planets", "uranus"),
+            Kategori("planets", "saturn"),
+            Kategori("breakfast", "oatmeal"),
+            Kategori("breakfast", "cornflakes"),
+            Kategori("breakfast", "toast"),
+            Kategori("country", "thailand" ),
+            Kategori("country","singapore" ),
+            Kategori("country","cambodia" )
             )
 }
 
