@@ -180,18 +180,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Trækker et liv fra spilleren
-     */
-    fun withdrawAndCheckLifePoint() {
-        currentLives -= 1
-        println(currentLives)
-        if (currentLives <= 0) {
-            gameDoneScreen()
-        }
-
-
-    }
 
     /**
      * Koden er hovedsageligt fra linket: https://stackoverflow.com/questions/64998884/im-trying-to-replace-a-fragment-in-an-android-app-but-my-fragment-doesnt-chan
@@ -205,10 +193,5 @@ class MainActivity : AppCompatActivity() {
         fragmentViewReset.addToBackStack(null)
 
         fragmentViewReset.commit()
-    }
-
-
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

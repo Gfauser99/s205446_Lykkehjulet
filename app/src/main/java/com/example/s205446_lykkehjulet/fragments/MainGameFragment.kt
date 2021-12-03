@@ -69,10 +69,8 @@ class MainGameFragment : Fragment() {
         if (!mActivity.guessButton) {
             guessButton.isEnabled = !guessButton.isEnabled
             inputField.isVisible = false
-            /* if (!mActivity.reSpinButton) {
-                view.findViewById<TextView>(R.id.spin_result_text).text = mActivity.currentSpin
-            }*/
         }
+
         // her disables spin knappen, hvis man skal indtaste et bogstav og gætte et ord efter et spin.
         if (!mActivity.wheelButton && !mActivity.reSpinButton) {
             spinButton.isEnabled = !spinButton.isEnabled }
@@ -90,17 +88,17 @@ class MainGameFragment : Fragment() {
                     ) {
                         mActivity.liste.add(inputText.toString().lowercase())
                         mActivity.currentPoints += (mActivity.pointsFromSpin * (mActivity.letterToGuess.count { it == inputText.toString().lowercase() }))
-                        // mActivity.currentSpin = (mActivity.spinnedPoints * (mActivity.letterToGuess.count{it == inputText.toString().lowercase()})).toString()
-                        mActivity.guessLetter()
-                        mActivity.checkIfWordGuessedOrGameOver()}
+
+                      }
 
                     if (inputText.toString().lowercase() !in mActivity.liste
                         && inputText.toString().lowercase() !in mActivity.letterToGuess) {
                             mActivity.liste.add(inputText.toString().lowercase())
-                            mActivity.withdrawAndCheckLifePoint()
-                            mActivity.guessLetter()
-                            mActivity.checkIfWordGuessedOrGameOver()
+                            mActivity.currentLives -=1
+
                     }
+                    mActivity.guessLetter()
+                    mActivity.checkIfWordGuessedOrGameOver()
                 }
             }
         }
